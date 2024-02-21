@@ -1,22 +1,28 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 
 type todoProps = {
   addTodo: (title: string) => boolean;
 };
 
 export default function TodosForm({ addTodo }: todoProps) {
-  // TODO:  تایپ این اگر استرینگ باشه آیا در اینپوت عدد هم میگیرد؟
   const [value, setValue] = useState<string>("");
+  const inputRef = useRef<HTMLInputElement>(null);
+
   const submitHandler = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     if (value) {
       addTodo(value);
       setValue("");
+      if (inputRef.current) {
+        inputRef.current.focus();
+      }
     }
   };
+
   return (
     <form className="TodoForm" onSubmit={submitHandler}>
       <input
+        ref={inputRef}
         value={value}
         onChange={(e) => setValue(e.target.value)}
         type="text"
