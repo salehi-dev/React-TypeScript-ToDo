@@ -23,7 +23,7 @@ export default function TodosWrapper() {
     return true;
   };
   const toggleComplete = () => {
-    // codding...
+    // codding soon...
   };
   return (
     <div className="TodoWrapper">
