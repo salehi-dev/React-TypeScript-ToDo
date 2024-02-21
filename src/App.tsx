@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./App.css";
 
 function App() {
@@ -9,11 +7,7 @@ function App() {
       {/* Add New Todo Form */}
 
       <form className="TodoForm">
-        <input
-          type="text"
-          className="todo-input"
-          placeholder="add todo..."
-        />
+        <input type="text" className="todo-input" placeholder="add todo..." />
         <button type="submit" className="todo-btn">
           Add Task
         </button>
