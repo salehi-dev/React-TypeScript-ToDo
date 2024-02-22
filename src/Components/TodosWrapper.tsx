@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import swal from "sweetalert";
 
 import Todo from "./Todo";
 import TodosFormTest from "./TodosForm";
@@ -18,7 +19,21 @@ export default function TodosWrapper() {
     return true;
   };
   const deletTodo = (todoId: string) => {
-    setTodos(todos.filter((todo) => todo.id !== todoId));
+    swal({
+      title: "Are you sure?",
+      text: "Are you sure you want to delete Todo?",
+      icon: "warning",
+      buttons: ["No", "Yes, Delet"],
+      dangerMode: true,
+    }).then((result) => {
+      if (result) {
+        setTodos(todos.filter((todo) => todo.id !== todoId));
+        swal({
+          title: "ToDo deleted",
+          icon: "success",
+        });
+      }
+    });
 
     return true;
   };
