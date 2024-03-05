@@ -18,7 +18,7 @@ export default function TodosWrapper() {
     ]);
     return true;
   };
-  const deletTodo = (todoId: string) => {
+  const deletTodo = (todoId: string): boolean => {
     swal({
       title: "Are you sure?",
       text: "Are you sure you want to delete Todo?",
@@ -37,8 +37,13 @@ export default function TodosWrapper() {
 
     return true;
   };
-  const toggleComplete = () => {
-    // codding soon...
+  const toggleComplete = (todoId: string): boolean => {
+    setTodos(
+      todos.map((todo) =>
+        todo.id === todoId ? { ...todo, isCompleted: !todo.isCompleted } : todo
+      )
+    );
+    return true;
   };
   return (
     <div className="TodoWrapper">

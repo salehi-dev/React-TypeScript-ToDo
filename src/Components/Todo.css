@@ -1,3 +1,14 @@
+.icon-wrapper {
+  display: flex;
+  gap: 5px;
+}
+
 .delet-icon:hover {
   color: #e53935;
+}
+.check-icon {
+  color: #1ce901;
+}
+.plus-icon {
+  color: orange;
 }
